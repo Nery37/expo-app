@@ -7,5 +7,15 @@
         "./*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "components/ui/**"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }
