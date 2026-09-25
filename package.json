@@ -1,0 +1,81 @@
+{
+  "name": "gestao-escolas",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@expo/html-elements": "^0.12.5",
+    "@gluestack-ui/core": "^5.0.0-alpha.0",
+    "@gluestack-ui/utils": "^5.0.1-alpha.0",
+    "@hookform/resolvers": "^5.9.1",
+    "@legendapp/motion": "^2.4.0",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "~57.0.25",
+    "expo-constants": "~57.0.19",
+    "expo-linking": "~57.0.11",
+    "expo-router": "~57.0.23",
+    "expo-status-bar": "~57.0.1",
+    "miragejs": "^0.1.48",
+    "nativewind": "^5.0.0-preview.2",
+    "react": "19.2.3",
+    "react-aria": "^3.45.0",
+    "react-hook-form": "^7.88.0",
+    "react-native": "0.86.3",
+    "react-native-css": "^3.0.4",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "^5.6.1",
+    "react-native-screens": "~4.26.0",
+    "react-native-svg": "^15.15.3",
+    "react-native-worklets": "0.10.1",
+    "react-stately": "^3.39.0",
+    "tailwind-variants": "^0.1.20",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "@tailwindcss/postcss": "^4.2.0",
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^30.0.0",
+    "@types/react": "~19.2.2",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~57.0.2",
+    "eslint-config-prettier": "^10.1.8",
+    "jest": "^30.5.2",
+    "jest-expo": "^57.0.5",
+    "prettier": "^3.9.9",
+    "tailwindcss": "^4.2.0",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "setupFiles": [
+      "@react-native-async-storage/async-storage/jest/async-storage-mock"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|nativewind|react-native-css)"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.test.{ts,tsx}"
+    ]
+  },
+  "overrides": {
+    "lightningcss": "1.30.1"
+  },
+  "resolutions": {
+    "lightningcss": "1.30.1"
+  }
+}
