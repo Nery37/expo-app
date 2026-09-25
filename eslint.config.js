@@ -9,6 +9,13 @@ module.exports = defineConfig([
   {
     // components/ui: gerado pelo CLI do gluestack-ui (código vendorizado,
     // não autoral) — não faz sentido lintar/formatar como código próprio.
-    ignores: ["dist/*", "components/ui/**"],
-  }
+    // .expo: gerado automaticamente pelo próprio Expo CLI (typed routes).
+    ignores: ["dist/*", "components/ui/**", ".expo/**"],
+  },
+  {
+    files: ["jest.setup.js"],
+    languageOptions: {
+      globals: { jest: 'readonly', require: 'readonly', global: 'readonly' },
+    },
+  },
 ]);

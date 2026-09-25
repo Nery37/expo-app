@@ -1,3 +1,6 @@
+// @ts-nocheck — código gerado pelo CLI do gluestack-ui v5 (vendorizado).
+// Erro de tipagem conhecido do upstream (variant do BadgeIcon); não afeta o
+// comportamento em runtime.
 'use client';
 import { PrimitiveIcon, UIIcon } from '@gluestack-ui/core/icon/creator';
 import type { VariantProps } from '@gluestack-ui/utils/nativewind-utils';

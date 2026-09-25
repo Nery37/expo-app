@@ -1,3 +1,6 @@
+// @ts-nocheck — código gerado pelo CLI do gluestack-ui v5 (vendorizado).
+// TS2590 "union type too complex" é limitação conhecida do upstream nesse
+// arquivo; não afeta o comportamento em runtime.
 'use client';
 
 import { H4 } from '@expo/html-elements';

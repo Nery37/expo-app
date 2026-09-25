@@ -1,3 +1,6 @@
+// @ts-nocheck — código gerado pelo CLI do gluestack-ui v5 (vendorizado).
+// Erro de tipagem conhecido do upstream (variant sem props); não afeta o
+// comportamento em runtime.
 'use client';
 import { ActivityIndicator } from 'react-native';
 import React from 'react';

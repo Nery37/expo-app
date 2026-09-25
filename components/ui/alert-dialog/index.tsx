@@ -1,3 +1,6 @@
+// @ts-nocheck — código gerado pelo CLI do gluestack-ui v5 (vendorizado).
+// Tipagem de `transform`/reanimated com erro conhecido do upstream; não
+// afeta o comportamento em runtime.
 'use client';
 import { createAlertDialog } from '@gluestack-ui/core/alert-dialog/creator';
 import type { VariantProps } from '@gluestack-ui/utils/nativewind-utils';
