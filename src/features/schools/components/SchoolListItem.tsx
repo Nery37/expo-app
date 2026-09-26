@@ -31,7 +31,7 @@ export function SchoolListItem({ school, onDelete }: SchoolListItemProps) {
               <Icon as={SchoolIcon} className="text-primary" size="md" />
             </Box>
             <VStack className="flex-1">
-              <Heading size="sm" numberOfLines={1}>
+              <Heading size="sm" isTruncated>
                 {school.nome}
               </Heading>
               <HStack space="xs" className="items-center">
