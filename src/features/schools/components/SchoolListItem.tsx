@@ -36,7 +36,7 @@ export function SchoolListItem({ school, onDelete }: SchoolListItemProps) {
               </Heading>
               <HStack space="xs" className="items-center">
                 <Icon as={MapPin} size="2xs" className="text-muted-foreground" />
-                <Text size="sm" className="flex-1 text-muted-foreground" numberOfLines={1}>
+                <Text size="sm" className="flex-1 text-muted-foreground" isTruncated>
                   {school.endereco}
                 </Text>
               </HStack>

@@ -1,4 +1,4 @@
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 
 import { Box } from '@/components/ui/box';
@@ -7,10 +7,11 @@ import { Text } from '@/components/ui/text';
 import { SchoolForm } from '@/src/features/schools/components/SchoolForm';
 import { useSchool } from '@/src/features/schools/hooks/useSchool';
 import { useSchoolsStore } from '@/src/features/schools/store/useSchoolsStore';
+import { useGoBackOr } from '@/src/hooks/useGoBackOr';
 
 export default function EditSchoolScreen() {
-  const router = useRouter();
   const { id } = useLocalSearchParams<{ id: string }>();
+  const goBack = useGoBackOr(`/schools/${id}`);
   const school = useSchool(id);
   const updateSchool = useSchoolsStore((state) => state.updateSchool);
 
@@ -34,7 +35,7 @@ export default function EditSchoolScreen() {
             submitLabel="Salvar alterações"
             onSubmit={async (values) => {
               await updateSchool(school.id, values);
-              router.back();
+              goBack();
             }}
           />
         </Box>

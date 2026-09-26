@@ -41,9 +41,14 @@ export function startMockServer({ environment = 'development' }: StartMockServer
       registerSchoolRoutes(this);
       registerClassRoutes(this);
 
-      // Qualquer requisição não mapeada acima (Metro, Expo, etc.) segue
-      // normalmente para a rede real em vez de ser interceptada.
-      this.passthrough();
+      // Qualquer requisição para outro host (Metro, dev tools do Expo, etc.)
+      // segue normalmente para a rede real em vez de ser interceptada.
+      // Precisa ser uma função com essa checagem: `this.passthrough()` sem
+      // argumentos aplica o urlPrefix ao path e só libera requisições para o
+      // MESMO host do mock; e uma função que sempre retorna `true` libera
+      // literalmente tudo, inclusive as próprias rotas de /schools e
+      // /classes registradas acima.
+      this.passthrough((request) => !request.url.startsWith(API_BASE_URL));
     },
   });
 

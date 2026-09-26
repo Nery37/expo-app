@@ -1,14 +1,15 @@
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 
 import { Box } from '@/components/ui/box';
 
 import { ClassForm } from '@/src/features/classes/components/ClassForm';
 import { useClassesStore } from '@/src/features/classes/store/useClassesStore';
+import { useGoBackOr } from '@/src/hooks/useGoBackOr';
 
 export default function NewClassScreen() {
-  const router = useRouter();
   const { id } = useLocalSearchParams<{ id: string }>();
+  const goBack = useGoBackOr(`/schools/${id}`);
   const createClass = useClassesStore((state) => state.createClass);
 
   return (
@@ -22,7 +23,7 @@ export default function NewClassScreen() {
             submitLabel="Cadastrar turma"
             onSubmit={async (values) => {
               await createClass(id, values);
-              router.back();
+              goBack();
             }}
           />
         </Box>

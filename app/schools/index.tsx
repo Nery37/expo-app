@@ -58,7 +58,12 @@ export default function SchoolsListScreen() {
         />
       )}
 
-      <Fab size="lg" placement="bottom right" onPress={() => router.push('/schools/new')}>
+      <Fab
+        size="lg"
+        placement="bottom right"
+        accessibilityLabel="Adicionar escola"
+        onPress={() => router.push('/schools/new')}
+      >
         <FabIcon as={Plus} />
       </Fab>
 

@@ -1,13 +1,13 @@
-import { useRouter } from 'expo-router';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 
 import { Box } from '@/components/ui/box';
 
 import { SchoolForm } from '@/src/features/schools/components/SchoolForm';
 import { useSchoolsStore } from '@/src/features/schools/store/useSchoolsStore';
+import { useGoBackOr } from '@/src/hooks/useGoBackOr';
 
 export default function NewSchoolScreen() {
-  const router = useRouter();
+  const goBack = useGoBackOr('/schools');
   const createSchool = useSchoolsStore((state) => state.createSchool);
 
   return (
@@ -21,7 +21,7 @@ export default function NewSchoolScreen() {
             submitLabel="Cadastrar escola"
             onSubmit={async (values) => {
               await createSchool(values);
-              router.back();
+              goBack();
             }}
           />
         </Box>

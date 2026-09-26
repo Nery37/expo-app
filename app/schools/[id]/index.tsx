@@ -120,6 +120,7 @@ export default function SchoolDetailScreen() {
       <Fab
         size="lg"
         placement="bottom right"
+        accessibilityLabel="Adicionar turma"
         onPress={() => router.push(`/schools/${school.id}/classes/new`)}
       >
         <FabIcon as={Plus} />
