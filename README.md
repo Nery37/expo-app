@@ -12,7 +12,7 @@ Desenvolvido como resposta ao desafio técnico [`🧩 Desafio Técnico – React
 | Expo SDK | 57 |
 | React | 19.2.3 |
 | React Native | 0.86.3 |
-| TypeScript | 5.9 (via `typescript` ~6.0.3) |
+| TypeScript | 6.0.3 |
 | Navegação | Expo Router 6 (`expo-router` ~57) |
 | UI | gluestack-ui v5 + NativeWind v5 (Tailwind CSS v4) |
 | Estado | Zustand 5 (com persistência via AsyncStorage) |
@@ -103,7 +103,7 @@ src/
   mocks/        # Servidor MirageJS: models, factories, seeds, rotas
   services/http/# httpClient (Adapter sobre o fetch)
   components/   # Componentes compartilhados entre features
-  hooks/        # Hooks compartilhados (useDebouncedValue, useBreakpoint)
+  hooks/        # Hooks compartilhados (debounce, breakpoint, navegação)
 
 components/ui/  # Componentes gerados pelo CLI do gluestack-ui (vendorizado)
 ```
@@ -138,8 +138,10 @@ npm test
 
 - **`components/ui/` tem mais componentes do que o app usa.** O CLI do gluestack-ui foi rodado com `--all` (58 componentes) para evitar ter que acertar o nome exato de cada um na hora de instalar; só uma parte deles é de fato importada pelo app (Button, Input, Select, Card, Badge, FormControl, AlertDialog, Fab, Spinner, etc.) — o Metro não inclui no bundle final o que não é importado.
 - **gluestack-ui v5 ainda é recente** (a própria CLI se identifica como "v5 alpha" em alguns textos, mesmo a versão publicada como `latest` no npm). Alguns arquivos vendorizados têm erros de tipagem do próprio upstream (não afetam o app rodando) — foram marcados com `@ts-nocheck` e um comentário explicando o motivo, em vez de mexer no código gerado.
-- Sem Android SDK/Xcode disponíveis durante o desenvolvimento, a verificação foi feita via `tsc --noEmit`, `eslint`, `jest` e `npx expo export -p web` (build de produção completo, sem erros) — o caminho recomendado para testar de fato é o Expo Go num celular real (`npx expo start`).
+- Sem Android SDK/Xcode disponíveis durante o desenvolvimento, a verificação foi feita via `tsc --noEmit`, `eslint`, `jest`, `npx expo export -p web` (build de produção completo) e a versão web do app dirigida ponta a ponta por um navegador headless (Playwright), navegando por cada tela e ação como um usuário real faria. Isso pegou dois bugs que passariam despercebidos só com testes automatizados/typecheck: um loop infinito de re-render ao aplicar busca/filtro (seletor do Zustand sem `useShallow`) e o `passthrough()` do MirageJS só liberando requisições para o próprio host do mock. Ambos corrigidos. O caminho recomendado para testar de fato num dispositivo é o Expo Go num celular real (`npx expo start`).
 
 ## Prints
 
-_(espaço para adicionar screenshots do app rodando)_
+| Lista de escolas | Nova escola | Detalhe + turmas | Nova turma |
+|---|---|---|---|
+| ![Lista de escolas](docs/screenshots/schools-list.png) | ![Nova escola](docs/screenshots/school-new.png) | ![Detalhe da escola com turmas](docs/screenshots/school-detail.png) | ![Nova turma](docs/screenshots/class-new.png) |
